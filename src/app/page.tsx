@@ -14,9 +14,9 @@ import { links, profile } from "@/data/profile";
  */
 export default function Home() {
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col items-center px-4 py-12">
+    <main className="mx-auto flex min-h-dvh w-full max-w-[440px] flex-col items-center px-6 pb-16 pt-16 sm:pt-24">
       <Profile profile={profile} />
-      <div className="mt-8 w-full">
+      <div className="mt-10 w-full">
         <LinkList links={links} />
       </div>
     </main>

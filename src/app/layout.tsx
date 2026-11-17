@@ -1,13 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { profile } from "@/data/profile";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: `${profile.name} | 링크나무`,
@@ -17,6 +10,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#f8f3ec",
 };
 
 export default function RootLayout({
@@ -26,7 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${geistSans.variable} antialiased`}>{children}</body>
+      <head>
+        {/* Pretendard (한글 포함 가변 폰트, 필요한 글자만 내려받는 dynamic subset) */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
+      </head>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

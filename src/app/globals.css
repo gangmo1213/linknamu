@@ -3,21 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f3ec;
+  --foreground: #2a2622;
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--background);
 }
 
 body {
+  min-height: 100dvh;
   color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-geist-sans), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  /* 크림 → 연한 파랑 그라데이션 + 은은한 빛 번짐 */
+  background:
+    radial-gradient(60rem 40rem at 10% -10%, rgba(255, 228, 196, 0.55), transparent 60%),
+    radial-gradient(50rem 40rem at 110% 110%, rgba(186, 214, 245, 0.6), transparent 60%),
+    linear-gradient(165deg, #fbf6ef 0%, #f5eee6 40%, #e7eef7 100%);
+  background-attachment: fixed;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  font-feature-settings: "ss06";
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
 }
 
 @layer utilities {
